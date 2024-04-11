@@ -167,87 +167,93 @@
       <div class="divider"></div>
 
       <!-- Contact -->
-      <section class="section contact" id="contact">
-        <div>
-        <h2 class="section__title">Contact</h2>
-        <form id="form">
-          <div>
-            <label for="name">Name</label>
-            <input value="" name="name" id="name" />
-          </div>
-          <div>
-            <label for="email">Email</label>
-            <input value="" name="email" id="email" type="email" />
-          </div>
-          <div>
-            <label for="add">Address</label>
-            <input value="" name="add" id="add" />
-          </div>
-          <div>
-            <label for="city">City</label>
-            <input value="" name="city" list="cities" id="city" />
-            <datalist id="cities">
-              <option value="Toronto" />
-              <option value="Barrie" />
-              <option value="Vancouver" />
-              <option value="Missisuaga" />
-              <option value="Ottawa" />
-            </datalist>
-          </div>
-          <div>
-            <label for="postal">Postal Code</label>
+      <!-- Contact -->
+<section class="section contact" id="contact">
+  <div>
+    <h2 class="section__title">Contact Me</h2>
+    <form id="form">
+      <div>
+        <label for="name">Name *</label>
+        <input value="" name="name" id="name" required />
+      </div>
+      <div>
+        <label for="email">Email Address *</label>
+        <input value="" name="email" id="email" type="email" required />
+      </div>
+      <div>
+        <label for="add">Address *</label>
+        <input value="" name="add" id="add" required />
+      </div>
+      <div>
+        <label for="city">City *</label>
+        <input value="" name="city" list="cities" id="city" required />
+        <datalist id="cities">
+          <option value="Toronto" />
+          <option value="Barrie" />
+          <option value="Vancouver" />
+          <option value="Mississauga" />
+          <option value="Ottawa" />
+        </datalist>
+      </div>
+      <div>
+        <label for="postal">Postal Code *</label>
+        <input
+          value=""
+          name="postal"
+          id="postal"
+          pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$"
+          required
+        />
+      </div>
+      <div>
+        <label>What is this about? *</label>
+        <fieldset id="about">
+          <span>
             <input
-              value=""
-              name="postal"
-              id="postal"
-              pattern="^[ABCEGHJ-NPRSTVXYabceghj-nprstvxy]\d[ABCEGHJ-NPRSTV-Zabceghj-nprstv-z][ -]?\d[ABCEGHJ-NPRSTV-Zabceghj-nprstv-z]\d$"
+              id="question"
+              type="radio"
+              value="Question"
+              name="about"
+              required
             />
-          </div>
-          <div>
-            <label for="about">What is this about?</label>
-            <fieldset name="about" id="about">
-              <span>
-                <input
-                  id="question"
-                  type="radio"
-                  value="Question"
-                  name="about"
-                />
-                <label for="question">Question</label>
-              </span>
-              <span>
-                <input
-                  id="comment"
-                  type="radio"
-                  value="Comment"
-                  name="about"
-                />
-                <label for="comment">Comment</label>
-              </span>
-              <span>
-                <input
-                  id="hiring"
-                  type="radio"
-                  value="Hiring"
-                  name="about"
-                />
-                <label for="hiring">Hiring</label>
-              </span>
-            </fieldset>
-          </div>
-          <div style="display: none" id="rateDiv">
-            <label for="rate" id="rateLabel">Hourly Rate</label>
-            <input type="number" min="0" step="0.25" name="rate" id="rateInput" />
-          </div>
-          <div>
-            <label for="text">Message</label>
-            <textarea name="message" id="text" rows="5"></textarea>
-          </div>
-          <button type="submit" class="btn btn--outline">Submit</button>
-        </form>
-        </div>
-      </section>
-    </main>
+            <label for="question">Question</label>
+          </span>
+          <span>
+            <input
+              id="comment"
+              type="radio"
+              value="Comment"
+              name="about"
+              required
+            />
+            <label for="comment">Comment</label>
+          </span>
+          <span>
+            <input
+              id="hiring"
+              type="radio"
+              value="Hiring"
+              name="about"
+              required
+            />
+            <label for="hiring">Hiring</label>
+          </span>
+        </fieldset>
+      </div>
+      <div style="display: none" id="rateDiv">
+        <label for="rateInput" id="rateLabel">Hourly Rate *</label>
+        <input type="number" min="0" step="0.25" name="rate" id="rateInput" />
+      </div>
+      <div>
+        <label for="message">Message *</label>
+        <textarea name="message" id="message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn btn--outline">Submit</button>
+    </form>
+  </div>
+</section>
+
+</main>
 
     <footer class="footer">
       <a href="https://www.linkedin.com/in/%ED%9D%A5%EB%B9%88-%EC%98%A4-25047322a/" class="link footer__link">

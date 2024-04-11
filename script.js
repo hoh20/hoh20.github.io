@@ -39,13 +39,14 @@ document.getElementById("comment").addEventListener("input", () => {
 });
 
 // Add event listener for hiring checkbox
-document.getElementById("hiring").addEventListener("change", () => {
-  const rateDiv = document.getElementById("rateDiv");
-  if (document.getElementById("hiring").checked) {
-    rateDiv.style.display = "block";
-  } else {
-    rateDiv.style.display = "none";
-  }
+document.querySelectorAll('input[name="about"]').forEach((radio) => {
+  radio.addEventListener("change", () => {
+    if (radio.value === "Hiring") {
+      document.getElementById("rateDiv").style.display = "block";
+    } else {
+      document.getElementById("rateDiv").style.display = "none";
+    }
+  });
 });
 
 // Function to display navigation list
