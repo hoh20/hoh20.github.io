@@ -1,11 +1,18 @@
-document.getElementById("form").addEventListener("submit", (event) => {
-  event.preventDefault();
-  const formData = new FormData(event.target);
+// Get form element
+const form = document.getElementById("form");
 
-  fetch("https://httpbin.org/post", {
-    method: "POST",
-    body: formData,
-  })
+// Add event listener for form submission
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  // Check if all fields are valid
+  if (form.checkValidity()) {
+    const formData = new FormData(form);
+
+    fetch("https://httpbin.org/post", {
+      method: "POST",
+      body: formData,
+    })
     .then((response) => response.json())
     .then((data) => {
       console.log(JSON.stringify(data, null, 2));
@@ -15,22 +22,39 @@ document.getElementById("form").addEventListener("submit", (event) => {
       console.error(err);
       alert("Failed to submit. Please try again.");
     });
+  } else {
+    // If form is not valid, display error messages
+    form.reportValidity();
+  }
 });
 
-document.getElementById("question").addEventListener("change", () => {
+// Add event listener for question input
+document.getElementById("question").addEventListener("input", () => {
   document.getElementById("rate").classList.add("hidden");
 });
 
-document.getElementById("comment").addEventListener("change", () => {
+// Add event listener for comment input
+document.getElementById("comment").addEventListener("input", () => {
   document.getElementById("rate").classList.add("hidden");
 });
 
+// Add event listener for hiring checkbox
 document.getElementById("hiring").addEventListener("change", () => {
-  document.getElementById("rate").classList.remove("hidden");
+  const rateInput = document.getElementById("rateInput");
+  const rateLabel = document.getElementById("rate");
+  if (document.getElementById("hiring").checked) {
+    rateLabel.classList.remove("hidden");
+    rateInput.classList.remove("hidden");
+  } else {
+    rateLabel.classList.add("hidden");
+    rateInput.classList.add("hidden");
+  }
 });
 
+// Function to display navigation list
 const displayList = () => {
   const navUl = document.querySelector(".nav__list");
+  const btns = document.getElementById("btns");
 
   if (btns.classList.contains("fa-bars")) {
     btns.classList.remove("fa-bars");
@@ -43,4 +67,6 @@ const displayList = () => {
   }
 };
 
+// Add event listener for navigation button
+const btns = document.getElementById("btns");
 btns.addEventListener("click", displayList);
