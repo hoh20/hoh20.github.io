@@ -1,6 +1,6 @@
 const body = document.body;
 
-const btnHamburger = document.querySelector(".fa-bars");
+const btns = document.querySelector(".fa-bars");
 
 const addThemeClass = (bodyClass, btnClass) => {
   body.classList.add(bodyClass);
@@ -28,18 +28,18 @@ btnTheme.addEventListener("click", toggleTheme);
 const displayList = () => {
   const navUl = document.querySelector(".nav__list");
 
-  if (btnHamburger.classList.contains("fa-bars")) {
-    btnHamburger.classList.remove("fa-bars");
-    btnHamburger.classList.add("fa-times");
+  if (btns.classList.contains("fa-bars")) {
+    btns.classList.remove("fa-bars");
+    btns.classList.add("fa-times");
     navUl.classList.add("display-nav-list");
   } else {
-    btnHamburger.classList.remove("fa-times");
-    btnHamburger.classList.add("fa-bars");
+    btns.classList.remove("fa-times");
+    btns.classList.add("fa-bars");
     navUl.classList.remove("display-nav-list");
   }
 };
 
-btnHamburger.addEventListener("click", displayList);
+btns.addEventListener("click", displayList);
 
 document.getElementById("form").addEventListener("submit", (event) => {
   event.preventDefault();

@@ -217,7 +217,7 @@ main {
   margin-left: 1.5em;
 }
 
-.nav__hamburger {
+.nav__btms {
   display: none;
   width: 1em;
 }
@@ -501,7 +501,7 @@ span {
     margin: 0.5em 0;
   }
 
-  .nav__hamburger {
+  .nav__btms {
     display: flex;
     margin-left: 0.8em;
   }
