@@ -23,7 +23,6 @@ const setTheme = (bodyClass, btnClass) => {
 };
 
 
-btnTheme.addEventListener("click", toggleTheme);
 
 const displayList = () => {
   const navUl = document.querySelector(".nav__list");
