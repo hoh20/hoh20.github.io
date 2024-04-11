@@ -40,14 +40,11 @@ document.getElementById("comment").addEventListener("input", () => {
 
 // Add event listener for hiring checkbox
 document.getElementById("hiring").addEventListener("change", () => {
-  const rateInput = document.getElementById("rateInput");
-  const rateLabel = document.getElementById("rate");
+  const rateDiv = document.getElementById("rateDiv");
   if (document.getElementById("hiring").checked) {
-    rateLabel.classList.remove("hidden");
-    rateInput.classList.remove("hidden");
+    rateDiv.style.display = "block";
   } else {
-    rateLabel.classList.add("hidden");
-    rateInput.classList.add("hidden");
+    rateDiv.style.display = "none";
   }
 });
 
