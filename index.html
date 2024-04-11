@@ -240,9 +240,13 @@
           </span>
         </fieldset>
       </div>
-      <div style="display: none" id="rateDiv">
-        <label for="rateInput" id="rateLabel">Hourly Rate *</label><br>
-        <input type="number" min="0" step="0.25" name="rate" id="rateInput" />
+      <div id="rateDiv" style="display: none">
+        <label for="rateInput" id="rateLabel">Hourly Rate *</label>
+        <div>
+          <input type="number" min="0" step="0.25" name="rate" id="rateInput" required />
+        </div>
+      </div>
+      
       </div>
       <div>
         <label for="message">Message *</label>
