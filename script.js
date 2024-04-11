@@ -4,7 +4,6 @@ const btns = document.querySelector(".fa-bars");
 
 const addThemeClass = (bodyClass, btnClass) => {
   body.classList.add(bodyClass);
-  btnTheme.classList.add(btnClass);
 };
 
 const getBodyTheme = localStorage.getItem("portfolio-theme");
@@ -14,7 +13,6 @@ addThemeClass(getBodyTheme, getBtnTheme);
 
 const setTheme = (bodyClass, btnClass) => {
   body.classList.remove(localStorage.getItem("portfolio-theme"));
-  btnTheme.classList.remove(localStorage.getItem("portfolio-btn-theme"));
 
   addThemeClass(bodyClass, btnClass);
 
