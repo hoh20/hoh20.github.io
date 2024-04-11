@@ -1,26 +1,33 @@
-const body = document.body;
+document.getElementById("form").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const formData = new FormData(event.target);
 
-const btns = document.querySelector(".fa-bars");
+  fetch("https://httpbin.org/post", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(JSON.stringify(data, null, 2));
+      alert("Successfully submitted!");
+    })
+    .catch((err) => {
+      console.error(err);
+      alert("Failed to submit. Please try again.");
+    });
+});
 
-const addThemeClass = (bodyClass, btnClass) => {
-  body.classList.add(bodyClass);
-};
+document.getElementById("question").addEventListener("change", () => {
+  document.getElementById("rate").classList.add("hidden");
+});
 
-const getBodyTheme = localStorage.getItem("portfolio-theme");
-const getBtnTheme = localStorage.getItem("portfolio-btn-theme");
+document.getElementById("comment").addEventListener("change", () => {
+  document.getElementById("rate").classList.add("hidden");
+});
 
-addThemeClass(getBodyTheme, getBtnTheme);
-
-const setTheme = (bodyClass, btnClass) => {
-  body.classList.remove(localStorage.getItem("portfolio-theme"));
-
-  addThemeClass(bodyClass, btnClass);
-
-  localStorage.setItem("portfolio-theme", bodyClass);
-  localStorage.setItem("portfolio-btn-theme", btnClass);
-};
-
-
+document.getElementById("hiring").addEventListener("change", () => {
+  document.getElementById("rate").classList.remove("hidden");
+});
 
 const displayList = () => {
   const navUl = document.querySelector(".nav__list");
@@ -37,40 +44,3 @@ const displayList = () => {
 };
 
 btns.addEventListener("click", displayList);
-
-document.getElementById("form").addEventListener("submit", (event) => {
-  event.preventDefault();
-  let values = {};
-  Object.keys(event.target.elements).map((key) => {
-    if (isNaN(key)) {
-      values[key] = event.target.elements[key].value;
-    }
-  });
-
-  fetch("https://httpbin.org/post", {
-    method: "POST",
-    body: JSON.stringify(values),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(JSON.stringify(data, null, 2));
-      alert("Successfully submitted!");
-    })
-    .catch((err) => {
-      alert(`Fail to proceed! Please, try again`);
-    });
-});
-
-document.getElementById("question").addEventListener("change", () => {
-  document.getElementById("rate").style = "display: none;";
-});
-
-document.getElementById("comment").addEventListener("change", () => {
-  document.getElementById("rate").style = "display: none;";
-});
-
-document.getElementById("hiring").addEventListener("change", () => {
-  document.getElementById("rate").style = "display: grid;";
-});
-
-
